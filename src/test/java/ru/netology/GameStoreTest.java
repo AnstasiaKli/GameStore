@@ -45,6 +45,7 @@ public class GameStoreTest {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game3 = new Game("Stalker", "Shooter", store);
 
+        assertTrue(store.containsGame(game));
         assertFalse(store.containsGame(game3));
     }
 
@@ -66,6 +67,15 @@ public class GameStoreTest {
 
         assertEquals(List.of(game, game1, game2), store.getGames());
 
+    }
+
+    @Test
+    public void shouldNotAddContainsGamesSameName() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Stalker", "Shooter");
+        Game game1 = new Game("Stalker", "Shooter", store);
+
+        assertEquals(List.of(game), store.getGames());
     }
 
     @Test
