@@ -13,7 +13,7 @@ public class GameStore {
      * Ключ - имя игрока
      * Значение - суммарное количество часов в игры этого каталога
      */
-    Map<String, Integer> playedTime = new HashMap<>();
+    private Map<String, Integer> playedTime = new HashMap<>();
 
     public List<Game> getGames() {
         return games;
